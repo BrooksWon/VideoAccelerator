@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VAViewController : UIViewController
+@interface VAViewController : UIViewController<PKRevealing>
+@property (nonatomic, strong, readwrite) PKRevealController *revealController;
+
 
 @end
