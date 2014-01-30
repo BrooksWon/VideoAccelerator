@@ -25,11 +25,7 @@ enum {
 };
 
 @interface MainMenu ()
-
-
-
 @end
-
 @implementation MainMenu
 
 - (void)viewDidLoad{
@@ -55,9 +51,6 @@ enum {
 }
 
 - (GTLServiceYouTube *)youtubeService{
-    
-    NSLog(@"youtubeService");
-    
     if (!_youtubeService) {
         _youtubeService = [[GTLServiceYouTube alloc] init];
         _youtubeService.retryEnabled = YES;
@@ -68,7 +61,6 @@ enum {
 
 - (void)setCurrentUserChannel:(GTLYouTubeChannel *)currentUserChannel{
     _currentUserChannel = currentUserChannel;
-    NSLog(@"setUserChannel");
     if (currentUserChannel) {
 //        MainViewController *mainViewController = (MainViewController*)self.revealController.frontViewController;
 //        [mainViewController getMostPopularOnCompletion:NULL];
@@ -88,9 +80,6 @@ enum {
 }
 
 - (void)getUserChannel{
-    
-    NSLog(@"getUserChannel");
-    
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading";
@@ -101,9 +90,6 @@ enum {
     [self.youtubeService executeQuery:videoQuery
                     completionHandler:^(GTLServiceTicket *ticket, GTLYouTubeChannelListResponse *object, NSError *error) {
                         self.currentUserChannel = object.items.lastObject;
-                        
-                        
-                        
                         if(_currentUserChannel){
                             NSLog(@"_currentUserChannel: YES");
                             MainViewController *mainViewController = (MainViewController*)self.revealController.frontViewController;
@@ -116,12 +102,6 @@ enum {
                         hud = nil;
                     }];
 }
-
-- (void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
-}
-
-
 
 #pragma mark - Table view data source
 
@@ -252,12 +232,10 @@ enum {
                                                                                         clientSecret:kClientSecret
                                                                                     keychainItemName:kKeychainItemName
                     completionHandler:^(GTMOAuth2ViewControllerTouch *viewController, GTMOAuth2Authentication *auth, NSError *error) {
-                                                                                       
                                 if (!error) {
-
                                     self.youtubeService.authorizer = auth;
                                     [self.logButtonO setTitle:@"Log out" forState:UIControlStateNormal];
-                                  [self getUserChannel];
+                                    [self getUserChannel];
                                 }
                                 else {
                                     self.youtubeService.authorizer = nil;

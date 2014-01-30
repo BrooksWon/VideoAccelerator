@@ -11,7 +11,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "MainMenu.h"
 #import <VideoPlayerKit/VideoPlayerKit.h>
-
+#import "VAVideoDetailViewController.h"
 
 @interface MainViewController : UIViewController<VideoPlayerDelegate, UITextFieldDelegate, UITableViewDelegate, NSURLConnectionDataDelegate, NSURLConnectionDelegate>{
     MBProgressHUD *hud;
@@ -31,7 +31,6 @@
 @property (nonatomic, strong) NSURLConnection *downloadingConnection;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (nonatomic, strong) VideoPlayerKit *videoPlayerViewController;
-//@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @property (weak, nonatomic) IBOutlet UIButton *searchIcon;
 - (void)getMostPopularOnCompletion:(void (^)(void))completion;
 - (IBAction)searchOverlayButton:(id)sender;

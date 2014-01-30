@@ -42,7 +42,6 @@
 }
 
 +(BOOL)is7{
-    
     NSString *version = [[UIDevice currentDevice] systemVersion];
     int ver = [version intValue];
     if (ver < 7){

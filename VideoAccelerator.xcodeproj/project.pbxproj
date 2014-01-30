@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-//asdfa
 		078A397F1D0D437792D5192F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD360AAAD4A74332ABD1D019 /* libPods.a */; };
 		66048D7D189282F10085D178 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66048D7C189282F10085D178 /* Foundation.framework */; };
 		66048D7F189282F10085D178 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66048D7E189282F10085D178 /* CoreGraphics.framework */; };
@@ -220,6 +219,8 @@
 		66048FE1189296440085D178 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 66048FE0189296440085D178 /* Utils.m */; };
 		66048FE4189297710085D178 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 66048FE3189297710085D178 /* MainMenu.m */; };
 		66048FE7189297A40085D178 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66048FE6189297A40085D178 /* MainViewController.m */; };
+		667099291897D1F100FD4680 /* VANAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667099281897D1F100FD4680 /* VANAVViewController.m */; };
+		667DCB8A189A4BC600CBD545 /* VAVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -604,6 +605,10 @@
 		66048FE3189297710085D178 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		66048FE5189297A40085D178 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		66048FE6189297A40085D178 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		667099271897D1F100FD4680 /* VANAVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VANAVViewController.h; sourceTree = "<group>"; };
+		667099281897D1F100FD4680 /* VANAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VANAVViewController.m; sourceTree = "<group>"; };
+		667DCB88189A4BC600CBD545 /* VAVideoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAVideoDetailViewController.h; sourceTree = "<group>"; };
+		667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAVideoDetailViewController.m; sourceTree = "<group>"; };
 		BD360AAAD4A74332ABD1D019 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C94F18D6604C9099465BB0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -719,6 +724,10 @@
 				66048FE6189297A40085D178 /* MainViewController.m */,
 				66048D94189282F10085D178 /* Images.xcassets */,
 				66048D83189282F10085D178 /* Supporting Files */,
+				667099271897D1F100FD4680 /* VANAVViewController.h */,
+				667099281897D1F100FD4680 /* VANAVViewController.m */,
+				667DCB88189A4BC600CBD545 /* VAVideoDetailViewController.h */,
+				667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */,
 			);
 			path = VideoAccelerator;
 			sourceTree = "<group>";
@@ -1438,9 +1447,11 @@
 				66048F81189290020085D178 /* GTLYouTubeLiveStreamContentDetails.m in Sources */,
 				66048F77189290020085D178 /* GTLYouTubeInvideoBranding.m in Sources */,
 				66048F6B189290020085D178 /* GTLYouTubeChannelSnippet.m in Sources */,
+				667DCB8A189A4BC600CBD545 /* VAVideoDetailViewController.m in Sources */,
 				66048F8E189290020085D178 /* GTLYouTubePlaylistItemSnippet.m in Sources */,
 				66048FB0189290020085D178 /* GTLYouTubeVideoGetRatingResponse.m in Sources */,
 				66048D8D189282F10085D178 /* VAAppDelegate.m in Sources */,
+				667099291897D1F100FD4680 /* VANAVViewController.m in Sources */,
 				66048FE4189297710085D178 /* MainMenu.m in Sources */,
 				66048F88189290020085D178 /* GTLYouTubePageInfo.m in Sources */,
 				66048DC3189288730085D178 /* RCDinputAccessoryView.m in Sources */,
@@ -1650,6 +1661,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "29D7B083-62BF-44F4-9D12-3E2402099A7A";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1675,6 +1687,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "29D7B083-62BF-44F4-9D12-3E2402099A7A";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

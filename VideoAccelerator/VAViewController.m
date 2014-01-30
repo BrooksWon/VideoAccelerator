@@ -39,5 +39,29 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }
+- (BOOL)shouldAutorotate {
+    NSLog(@"shouldAutorotate");
+    return NO;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    NSLog(@"preferredInterfaceOrientationForPresentation");
+    
+    return UIInterfaceOrientationPortrait;
+}
+//ios4 and ios5
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    NSLog(@"shouldAutorotateToInterfaceOrientation");
+    
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations{
+    NSLog(@"supportedInterfaceOrientations");
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 @end
