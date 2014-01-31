@@ -182,6 +182,7 @@
 //        NSLog(@"Sec : %@",seconds);
         if(rangeOfS.location+1 < duration.length){
             duration = [duration substringFromIndex:rangeOfS.location+1];
+            NSLog(@"%@",duration);
         }
     }else{
         seconds = @"00";

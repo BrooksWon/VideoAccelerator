@@ -46,48 +46,7 @@ enum{
     _menu = (MainMenu*)self.revealController.leftViewController;
 	
 }
--(void)xtractVideoLink:(UITableViewCell*)cell{
-    if(synchronzed){
-        return;
-    }
-    synchronzed = YES;
-    NSString* urlStr = [NSString stringWithFormat:kYoutubeGetVideoInfo, currentVideoID];
-    NSLog(@"video urlStr: %@", urlStr );
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *downloadedData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
-        if (downloadedData) {
-            NSString *videoInfo = [[NSString alloc] initWithData:downloadedData encoding:NSUTF8StringEncoding];
-            NSArray *totalParameters = [videoInfo componentsSeparatedByString:@"&"];
-            NSString *fmt_parameter;
-            for (int i =0; i< totalParameters.count; i++) {
-                fmt_parameter = [totalParameters objectAtIndex:i];
-                if([fmt_parameter rangeOfString:kUrlEncodedFmtStreamMap].location != NSNotFound){
-                    fmt_parameter = [fmt_parameter stringByReplacingOccurrencesOfString:kUrlEncodedFmtStreamMap withString:@""];
-                    break;
-                }
-            }
-            fmt_parameter = [fmt_parameter stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            NSArray *all_links = [fmt_parameter componentsSeparatedByString:@","];
-            NSArray *singleLink = [[all_links objectAtIndex:0] componentsSeparatedByString:@"&"];
-            NSString *url;
-            NSString *signature;
-            for (int i =0; i< singleLink.count; i++) {
-                NSString *link_parameter = [singleLink objectAtIndex:i];
-                if([link_parameter rangeOfString:@"url="].location != NSNotFound){
-                    url = [link_parameter stringByReplacingOccurrencesOfString:@"url=" withString:@""];
-                    url = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                }else if([link_parameter rangeOfString:@"sig="].location != NSNotFound){
-                    signature = [link_parameter stringByReplacingOccurrencesOfString:@"sig=" withString:@"signature="];
-                }
-            }
-            NSString *finalLink = [NSString stringWithFormat:@"%@&%@", url, signature];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self playVideo:[NSURL URLWithString:finalLink] :cell ];
-                [self downloadVideoWithURL:[NSURL URLWithString:finalLink]];
-            });
-        }
-    });
-}
+
 -(void)downloadVideoWithURL:(NSURL*)url{
     
     mutData = [[NSMutableData alloc] init];
@@ -264,50 +223,13 @@ enum{
     
     NSString * storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-    VAVideoDetailViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"VAVideoDetailViewController"];
+    VAVideoDetailViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VAVideoDetailViewController"];
+    vc.currentVideoID=currentVideoID;
     [self.navigationController pushViewController:vc animated:YES];
     
-    
-//    [self handleVideoPlaying:cell];
 }
 
--(void)handleVideoPlaying:(UITableViewCell*)cell{
-    NSLog(@"This is Comming Inside");
-    NSString *videoStatus = [Utils getValueForKey:[NSString stringWithFormat:@"%@.mp4", currentVideoID]];
-    if(videoStatus){
-        if([videoStatus isEqualToString:kCompleted]){
-            // play video offline
-            isDataSaved = C_YES;
-            [self playVideo:[NSURL fileURLWithPath:[Utils getFilePath:currentVideoID]] :cell];
-        }else{
-            // extract video link, play online and resume download
-            isDataSaved = C_NO;
-            [self xtractVideoLink:cell];
-        }
-    }else{
-        // extract video link, play online and start download it also
-        isDataSaved = C_NO;
-        [self xtractVideoLink:cell];
-    }
-}
--(void)playVideo:(NSURL*)url :(UITableViewCell*) cell{
 
-    UIView *mainView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
-    [mainView setBackgroundColor:[UIColor blueColor]];
-    if (!self.videoPlayerViewController) {
-        self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingView:mainView optionalTopView:nil hideTopViewWithControls:YES];
-        self.videoPlayerViewController.delegate = self;
-        self.videoPlayerViewController.allowPortraitFullscreen = NO;
-    }
-    [mainView addSubview:self.videoPlayerViewController.view];
-    [self.view addSubview:mainView];
-//    [cell.contentView addSubview:mainView];
-    AVURLAsset *asset = [AVURLAsset assetWithURL:url];
-    [self.videoPlayerViewController playVideoWithTitle:@"Title" asset:asset videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
-    [_mainTableView reloadData];
-    
-}
 - (void)updateUI{
     [_mainTableView reloadData];
 }

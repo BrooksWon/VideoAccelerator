@@ -221,6 +221,8 @@
 		66048FE7189297A40085D178 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66048FE6189297A40085D178 /* MainViewController.m */; };
 		667099291897D1F100FD4680 /* VANAVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667099281897D1F100FD4680 /* VANAVViewController.m */; };
 		667DCB8A189A4BC600CBD545 /* VAVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */; };
+		66BCC455189BBC9E002BEE53 /* VASuggestedVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC454189BBC9E002BEE53 /* VASuggestedVideos.m */; };
+		66BCC458189BCD84002BEE53 /* VACommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC457189BCD84002BEE53 /* VACommentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -609,6 +611,10 @@
 		667099281897D1F100FD4680 /* VANAVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VANAVViewController.m; sourceTree = "<group>"; };
 		667DCB88189A4BC600CBD545 /* VAVideoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAVideoDetailViewController.h; sourceTree = "<group>"; };
 		667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAVideoDetailViewController.m; sourceTree = "<group>"; };
+		66BCC453189BBC9E002BEE53 /* VASuggestedVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VASuggestedVideos.h; sourceTree = "<group>"; };
+		66BCC454189BBC9E002BEE53 /* VASuggestedVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VASuggestedVideos.m; sourceTree = "<group>"; };
+		66BCC456189BCD83002BEE53 /* VACommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VACommentsViewController.h; sourceTree = "<group>"; };
+		66BCC457189BCD84002BEE53 /* VACommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VACommentsViewController.m; sourceTree = "<group>"; };
 		BD360AAAD4A74332ABD1D019 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C94F18D6604C9099465BB0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -728,6 +734,10 @@
 				667099281897D1F100FD4680 /* VANAVViewController.m */,
 				667DCB88189A4BC600CBD545 /* VAVideoDetailViewController.h */,
 				667DCB89189A4BC600CBD545 /* VAVideoDetailViewController.m */,
+				66BCC453189BBC9E002BEE53 /* VASuggestedVideos.h */,
+				66BCC454189BBC9E002BEE53 /* VASuggestedVideos.m */,
+				66BCC456189BCD83002BEE53 /* VACommentsViewController.h */,
+				66BCC457189BCD84002BEE53 /* VACommentsViewController.m */,
 			);
 			path = VideoAccelerator;
 			sourceTree = "<group>";
@@ -1408,6 +1418,7 @@
 				66048F63189290020085D178 /* GTLYouTubeChannelAuditDetails.m in Sources */,
 				66048F5A189290020085D178 /* GTLYouTubeActivityContentDetailsPromotedItem.m in Sources */,
 				66048F91189290020085D178 /* GTLYouTubePlaylistPlayer.m in Sources */,
+				66BCC455189BBC9E002BEE53 /* VASuggestedVideos.m in Sources */,
 				66048F6D189290020085D178 /* GTLYouTubeChannelStatus.m in Sources */,
 				66048F9E189290020085D178 /* GTLYouTubeSubscriptionSnippet.m in Sources */,
 				66048F84189290020085D178 /* GTLYouTubeLiveStreamStatus.m in Sources */,
@@ -1461,6 +1472,7 @@
 				66048F85189290020085D178 /* GTLYouTubeLocalizedProperty.m in Sources */,
 				66048FB6189290020085D178 /* GTLYouTubeVideoProcessingDetailsProcessingProgress.m in Sources */,
 				66048FA3189290020085D178 /* GTLYouTubeTokenPagination.m in Sources */,
+				66BCC458189BCD84002BEE53 /* VACommentsViewController.m in Sources */,
 				66048FA9189290020085D178 /* GTLYouTubeVideoContentDetails.m in Sources */,
 				66048F6A189290020085D178 /* GTLYouTubeChannelSettings.m in Sources */,
 				66048FB2189290020085D178 /* GTLYouTubeVideoLiveStreamingDetails.m in Sources */,

@@ -53,7 +53,7 @@
   NSDateComponents *components = [calendar components:unitFlags fromDate:earliest toDate:latest options:0];
   
   if (components.year >= 1) {
-      NSString *temp=[NSString stringWithFormat:@"%i year ago",components.year ];
+      NSString *temp=[NSString stringWithFormat:@"%li year ago",(long)components.year ];
     return NSLocalizedString(temp, nil);
   }
   if (components.month >= 1) {
@@ -77,7 +77,7 @@
 - (NSString*)stringForComponentValue:(NSInteger)componentValue withName:(NSString*)name andPlural:(NSString*)plural
 {
   NSString *timespan = NSLocalizedString(componentValue == 1 ? name : plural, nil);
-  return [NSString stringWithFormat:@"%d %@ %@", componentValue, timespan, NSLocalizedString(@"ago", nil)];
+  return [NSString stringWithFormat:@"%ld %@ %@", (long)componentValue, timespan, NSLocalizedString(@"ago", nil)];
 }
 
 @end
